@@ -37,16 +37,20 @@ const mainLoop = function() {
 }
 
 const keyDownHandler = function(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
+    if ((e.key == "Right" || e.key == "ArrowRight")
+        && currentDirection != 'l') {
         currentDirection = 'r';
         console.log("Key right pressed");
-    } else if(e.key == "Left" || e.key == "ArrowLeft") {
+    } else if ((e.key == "Left" || e.key == "ArrowLeft")
+        && currentDirection != 'r') {
         currentDirection = 'l';
         console.log("Key left pressed");
-    } else if(e.key == "Down" || e.key == "ArrowDown") {
+    } else if ((e.key == "Down" || e.key == "ArrowDown")
+        && currentDirection != 'u') {
         currentDirection = 'd';
         console.log("Key down pressed");
-    } else if(e.key == "Up" || e.key == "ArrowUp") {
+    } else if ((e.key == "Up" || e.key == "ArrowUp")
+        && currentDirection != 'd') {
         currentDirection = 'u';
         console.log("Key up pressed");
     }
