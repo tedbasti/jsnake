@@ -21,27 +21,28 @@ const drawScreen = function() {
 }
 
 const mainLoop = function() {
-    //Move the tail of the snake to the head
-    console.log(snake);
-    for(var i=(snake.length-1); i>0; i--) {
-        snake[i].x = snake[i-1].x;
-        snake[i].y = snake[i-1].y;
-    }
-    //Move the head of the snake to the next position
+    //Remove the tail
+    var last = snake.pop();
+    //Create the new head with the existing last object
     switch (currentDirection) {
         case 'r':
-            snake[0].x=snake[0].x+movement.x;
+            last.x = snake[0].x + movement.x;
+            last.y = snake[0].y;
             break;
         case 'l':
-            snake[0].x=snake[0].x-movement.x;
+            last.x = snake[0].x - movement.x;
+            last.y = snake[0].y;
             break;
         case 'u':
-            snake[0].y=snake[0].y-movement.y;
+            last.x = snake[0].x;
+            last.y = snake[0].y - movement.y;
             break;
         case 'd':
-            snake[0].y=snake[0].y+movement.y;
+            last.x = snake[0].x;
+            last.y = snake[0].y + movement.y;
             break;
     }
+    snake.unshift(last);
     drawScreen();
 }
 
