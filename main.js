@@ -16,7 +16,6 @@ const drawScreen = function() {
     ctx.fillStyle = "violet";
     ctx.fill();
     ctx.closePath();
-    console.log("called drawScreen");
 }
 
 const mainLoop = function() {
@@ -35,7 +34,6 @@ const mainLoop = function() {
             break;
     }
     drawScreen();
-    console.log("called move");
 }
 
 const keyDownHandler = function(e) {
