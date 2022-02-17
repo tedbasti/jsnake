@@ -1,10 +1,8 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-let x = 10;
-let y = 10;
-const xMove = 5;
-const yMove = 5;
+pos = {x:10, y:10}
+const movement = {x:5, y:5};
 let currentDirection = 'r';
 
 const drawScreen = function() {
@@ -12,7 +10,7 @@ const drawScreen = function() {
     ctx.clearRect(0,0,canvas.width, canvas.height);
     //Draw the "snake"
     ctx.beginPath();
-    ctx.rect(x,y,5,5);
+    ctx.rect(pos.x,pos.y,5,5);
     ctx.fillStyle = "violet";
     ctx.fill();
     ctx.closePath();
@@ -21,16 +19,16 @@ const drawScreen = function() {
 const mainLoop = function() {
     switch (currentDirection) {
         case 'r':
-            x=x+xMove;
+            pos.x=pos.x+movement.x;
             break;
         case 'l':
-            x=x-xMove;
+            pos.x=pos.x-movement.x;
             break;
         case 'u':
-            y=y-yMove;
+            pos.y=pos.y-movement.y;
             break;
         case 'd':
-            y=y+yMove;
+            pos.y=pos.y+movement.y;
             break;
     }
     drawScreen();
