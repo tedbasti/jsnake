@@ -1,0 +1,21 @@
+html {
+    background-color: #111;
+    color: violet;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+a {
+    color: violet;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white
+}
+
+#myCanvas {
+    width: "480";
+    height: "320";
+    background-color: #444;
+}
