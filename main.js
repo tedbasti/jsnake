@@ -1,7 +1,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-let snake = [{x:10, y:10}];
+let snake = [{x:20, y:10}, {x:15, y:10}, {x:10, y:10}];
 const movement = {x:5, y:5};
 let currentDirection = 'r';
 
@@ -21,6 +21,13 @@ const drawScreen = function() {
 }
 
 const mainLoop = function() {
+    //Move the tail of the snake to the head
+    console.log(snake);
+    for(var i=(snake.length-1); i>0; i--) {
+        snake[i].x = snake[i-1].x;
+        snake[i].y = snake[i-1].y;
+    }
+    //Move the head of the snake to the next position
     switch (currentDirection) {
         case 'r':
             snake[0].x=snake[0].x+movement.x;
