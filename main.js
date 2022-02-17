@@ -28,18 +28,30 @@ const mainLoop = function() {
         case 'r':
             last.x = snake[0].x + movement.x;
             last.y = snake[0].y;
+            if (last.x >= canvas.width) {
+                last.x = 0;
+            }
             break;
         case 'l':
             last.x = snake[0].x - movement.x;
             last.y = snake[0].y;
+            if (last.x <= -5) {
+                last.x = canvas.width-5;
+            }
             break;
         case 'u':
             last.x = snake[0].x;
             last.y = snake[0].y - movement.y;
+            if (last.y <= -5) {
+                last.y = canvas.height-5;
+            }
             break;
         case 'd':
             last.x = snake[0].x;
             last.y = snake[0].y + movement.y;
+            if (last.y >= canvas.height) {
+                last.y = 0;
+            }
             break;
     }
     snake.unshift(last);
