@@ -1,14 +1,11 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-pos = {x:10, y:10}
+let snake = [{x:10, y:10}];
 const movement = {x:5, y:5};
 let currentDirection = 'r';
 
-const drawScreen = function() {
-    //Clearscreen
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    //Draw the "snake"
+const drawSnake = function(pos) {
     ctx.beginPath();
     ctx.rect(pos.x,pos.y,5,5);
     ctx.fillStyle = "violet";
@@ -16,19 +13,26 @@ const drawScreen = function() {
     ctx.closePath();
 }
 
+const drawScreen = function() {
+    //Clearscreen
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    //Draw the "snake"
+    snake.forEach(drawSnake);
+}
+
 const mainLoop = function() {
     switch (currentDirection) {
         case 'r':
-            pos.x=pos.x+movement.x;
+            snake[0].x=snake[0].x+movement.x;
             break;
         case 'l':
-            pos.x=pos.x-movement.x;
+            snake[0].x=snake[0].x-movement.x;
             break;
         case 'u':
-            pos.y=pos.y-movement.y;
+            snake[0].y=snake[0].y-movement.y;
             break;
         case 'd':
-            pos.y=pos.y+movement.y;
+            snake[0].y=snake[0].y+movement.y;
             break;
     }
     drawScreen();
