@@ -3,8 +3,8 @@ const ctx = canvas.getContext("2d");
 
 let x = 10;
 let y = 10;
-const xMove = 1;
-const yMove = 1;
+const xMove = 5;
+const yMove = 5;
 let currentDirection = 'r';
 
 const drawScreen = function() {
@@ -59,7 +59,7 @@ const keyDownHandler = function(e) {
 const initialize = function() {
     document.addEventListener("keydown", keyDownHandler, false);
     drawScreen();
-    setInterval(mainLoop, 100);
+    setInterval(mainLoop, 90);
     console.info("Canvas initialized");
 }
 
